@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget
@@ -6,14 +7,58 @@ class LoginPage extends StatelessWidget
   Widget build(BuildContext context) {
     // TODO: implement build
     return Material(
-      child: Center(
-        child: Text("Login Page",style: TextStyle(
-          fontSize: 40,
-          color: Colors.red,
-          fontWeight: FontWeight.bold
+      color: Colors.white,
+      child: Column(
+        children: [
+          Image.asset("assets/images/login_img.png",fit: BoxFit.fill,),
+          SizedBox(
+            height: 20.0,
+           // child: Text("Space"),
           ),
-          textScaleFactor:1.0 ,
-        ),
+          Text(
+            "Welcome",
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),),
+         Padding(
+           padding: const EdgeInsets.symmetric(vertical: 16.0,horizontal: 32.0),
+           child:  Column(
+             children: [
+               TextFormField(
+                 decoration: InputDecoration(
+                     hintText: "Enter Username",
+                     labelText: "Username"
+                 ),
+
+               ),
+               TextFormField(
+                 obscureText: true  ,
+                 decoration: InputDecoration(
+                     hintText: "Enter Password",
+                     labelText: "Password"
+                 ),
+               ),
+               SizedBox(
+                 height: 20.0,
+                 // child: Text("Space"),
+               ),
+               
+               ElevatedButton(
+                   child: Text("Login"),
+                 style: ButtonStyle(
+                   foregroundColor: MaterialStateProperty.all(Colors.white),
+                   backgroundColor: MaterialStateProperty.all(Colors.deepOrange)
+                 ),
+                 onPressed: (){
+                    print("Hello BUDDY");
+                 },
+               ),
+             ],
+           ),
+         )
+
+        ],
       ),
     );
   }
