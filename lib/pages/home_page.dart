@@ -6,6 +6,7 @@ class HomePage extends StatelessWidget{
     // TODO: implement build
   return Scaffold(
     appBar: AppBar(
+      backgroundColor: Colors.deepOrange,
       title: Text("My First App"),
     ),
      body: Center(
