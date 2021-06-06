@@ -2,6 +2,7 @@
 import 'package:flutter_app/pages/home_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/utils/routes.dart';
+import 'package:flutter_app/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -15,13 +16,11 @@ class MyApp extends StatelessWidget {
     bringVegetables(thaila: true);
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-       fontFamily: GoogleFonts.lato().fontFamily,
-      ),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData(brightness: Brightness.light),
+      themeMode: ThemeMode.light,
+     // darkTheme: ThemeData(brightness: Brightness.light),
        // initialRoute: "/home",
 
         routes: {

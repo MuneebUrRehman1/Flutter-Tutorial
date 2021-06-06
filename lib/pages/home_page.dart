@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/Drawer.dart';
+import 'package:flutter_app/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget{
   @override
@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget{
     // TODO: implement build
   return Scaffold(
     appBar: AppBar(
-      backgroundColor: Colors.deepOrange,
+    //  backgroundColor: Colors.deepOrange,
       title: Text("My First App"),
     ),
      body: Center(

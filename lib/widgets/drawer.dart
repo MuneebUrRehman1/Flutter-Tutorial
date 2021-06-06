@@ -34,7 +34,8 @@ class MyDrawer extends StatelessWidget
               textScaleFactor: 1.2,),
           ),
           ListTile(
-            leading: Icon(CupertinoIcons.mail_solid, color: Colors.deepOrange,),
+            leading: Icon(CupertinoIcons.mail_solid
+              , color: Colors.deepOrange,),
             title: Text("Email",
               textScaleFactor: 1.2,),
           ),
