@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/catalog.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 class ItemWidget extends StatelessWidget
 {
   final Item item;
@@ -18,7 +17,7 @@ class ItemWidget extends StatelessWidget
         onTap: () {
           print(Text("Welcome Everyone"));
         },
-        leading: Image.asset(item.imgUrl),
+        leading: Image.network(item.imgUrl),
         title: Text(item.name ),
         subtitle: Text(item.desc),
         trailing: Text("\$${item.price}",

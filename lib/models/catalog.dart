@@ -1,8 +1,6 @@
 class CatalogModel
 {
-   static final items=[
-       Item(1, "Realme", "My Phone", 999, "33505a", "assets/images/profile.png")
-   ];
+   static List<Item> items=[];
 }
 
 
@@ -16,4 +14,26 @@ class Item
     final String imgUrl;
 
     Item(this.id, this.name, this.desc, this.price, this.color, this.imgUrl);
+
+    factory Item.fromMap(Map<String, dynamic> map) {
+      return Item(
+         map['id'],
+         map['name'],
+         map['desc'],
+         map['price'],
+         map['color'],
+         map['image'],
+      );
+    }
+
+    Map<String, dynamic> toMap() {
+      return {
+        'id': id,
+        'name': name,
+        'desc': desc,
+        'price': price,
+        'color': color,
+        'image': imgUrl,
+      };
+    }
 }
