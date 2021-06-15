@@ -44,12 +44,44 @@ class _HomePageState extends State<HomePage> {
     ),
      body: Padding(
        padding: const EdgeInsets.all(16.0),
-       child: ListView.builder(
-           itemCount: CatalogModel.items.length,
+       child: GridView.builder(
+         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+           crossAxisCount: 2,
+             mainAxisSpacing: 15,
+           crossAxisSpacing: 15
+         ),
          itemBuilder: (context, index) {
-           return ItemWidget(item: CatalogModel.items[index],);
+           final item = CatalogModel.items[index];
+           return
+             Card(
+               clipBehavior: Clip.antiAlias,
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(16)
+               ),
+               child: GridTile(
+                 header: Container(
+                     child: Text(item.name, style: TextStyle(
+                       color: Colors.white,
+                     ),),
+                     padding: const EdgeInsets.all(12),
+                     decoration: BoxDecoration(
+                     color: Colors.deepOrange,
+                 ),
+                   ),
+                   footer: Container(
+                     child: Text(item.price.toString(), style: TextStyle(
+                       color: Colors.white,
+                     ),),
+                     padding: const EdgeInsets.all(12),
+                     decoration: BoxDecoration(
+                       color: Colors.green,
+                     ),
+                   ),
+                   child: Image.network(item.imgUrl)
+               ),
+             );
          },
-       ),
+         itemCount: CatalogModel.items.length,)
      ),
     drawer: MyDrawer(),
   );
