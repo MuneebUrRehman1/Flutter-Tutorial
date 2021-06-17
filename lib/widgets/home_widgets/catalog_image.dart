@@ -22,7 +22,7 @@ class CatalogImage extends StatelessWidget
       child: Container(
           width: MediaQuery.of(context).size.width*0.4,
           padding: EdgeInsets.all(8),
-          color: MyTheme.creamColor ,
+          color: Theme.of(context).scaffoldBackgroundColor ,
           child: Image.network(image)),
     );
   }

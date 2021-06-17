@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/catalog.dart';
 import 'package:flutter_app/pages/home_detail_page.dart';
-
+import 'package:flutter_app/utils/routes.dart';
 import 'catalog_image.dart';
-
 class CatalogList extends StatelessWidget
 {
   @override
@@ -23,7 +21,6 @@ class CatalogList extends StatelessWidget
               child: CatalogItem(catalog)
           );
         },
-
       ),
     );
   }
@@ -46,9 +43,9 @@ class CatalogItem extends StatelessWidget
       ),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 16,horizontal: 16),
-        color: Colors.white,
-        height: 180,
+        color: Theme.of(context).cardColor,
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Hero(
               tag:Key(catalog.id.toString()),
@@ -59,12 +56,10 @@ class CatalogItem extends StatelessWidget
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   Text(catalog.name, style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.deepOrange
                   ),),
-
                   Text(catalog.desc),
                   ButtonBar(
                     alignment: MainAxisAlignment.spaceBetween ,
@@ -75,10 +70,13 @@ class CatalogItem extends StatelessWidget
                       ),),
 
                       ElevatedButton(
-                          onPressed: () {
-
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Theme.of(context).buttonColor)
+                        ),
+                        onPressed: () {
+                              Navigator.pushNamed(context, MyRoutes.cartRoute);
                           },
-                          child: Text("Buy"))
+                          child: Text("Add to cart"))
                     ],
                   )
                 ],

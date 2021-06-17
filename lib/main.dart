@@ -1,4 +1,5 @@
   import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/cart_page.dart';
 import 'package:flutter_app/pages/home_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/utils/routes.dart';
@@ -16,16 +17,18 @@ class MyApp extends StatelessWidget {
     bringVegetables(thaila: true);
     return MaterialApp(
       title: 'Flutter Demo',
+      themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
-      //darkTheme: MyTheme.darkTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
      // darkTheme: ThemeData(brightness: Brightness.light),
        // initialRoute: "/home",
 
         routes: {
-        "/": (context) => HomePage() ,
+        "/": (context) => LoginPage() ,
           MyRoutes.homeRoute: (context) => HomePage(),
           MyRoutes.loginRoute: (context) => LoginPage(),
+          MyRoutes.cartRoute: (context) => CartPage(),
         },
     );
   }

@@ -13,9 +13,11 @@ class HomeDetailsPage extends StatelessWidget
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: ButtonBar(
           buttonPadding: EdgeInsets.symmetric(horizontal: 24),
           alignment: MainAxisAlignment.spaceBetween ,
@@ -25,19 +27,19 @@ class HomeDetailsPage extends StatelessWidget
               fontSize: 24
 
             ),),
-
             ElevatedButton(
               style: ButtonStyle(
-                minimumSize:MaterialStateProperty.all(Size(100, 40))
+                minimumSize:MaterialStateProperty.all(Size(100, 40)),
+                backgroundColor: MaterialStateProperty.all(Theme.of(context).buttonColor)
               ),
                 onPressed: () {
 
                 },
-                child: Text("Buy"))
+                child: Text("Add to cart"))
           ],
         ),
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: Theme.of(context).cardColor,
       body: Column(
         children: [
           Padding(
@@ -53,7 +55,7 @@ class HomeDetailsPage extends StatelessWidget
               padding: EdgeInsets.all(16),
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.elliptical(MediaQuery.of(context).size.width, 50)
                 ),
@@ -66,7 +68,15 @@ class HomeDetailsPage extends StatelessWidget
                       fontSize: 26,
                       color: Colors.deepOrange
                   ),),
-                  Text(catalog.desc),
+                  Text(catalog.desc,style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),),
+                  Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, "
+                      "pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus."
+                    ,textAlign: TextAlign.justify,),
+                  )
                 ],
               ),
             ),
